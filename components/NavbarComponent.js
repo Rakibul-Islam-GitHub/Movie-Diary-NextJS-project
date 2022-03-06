@@ -18,8 +18,8 @@ const NavbarComponent = () => {
       <Link href="/" passHref>
       <Nav.Link className='nav-text' >All Reviews</Nav.Link>
       </Link>
-       <Link href="/add-review" passHref>
-       <Nav.Link className="ml-3 nav-text" >Add New</Nav.Link>
+       <Link href="/addreview" passHref>
+       <Nav.Link className="ml-3 nav-text" >Add New Review</Nav.Link>
        </Link>
       
       
