@@ -1,9 +1,11 @@
-import { MongoClient } from "mongodb";
 
-const client= MongoClient.connect(`mongodb+srv://rakibul:${process.env.DB_PASS}@cluster0.gpypc.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`);
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
-const db= client.db();
-const dbClose= client.close();
 
-export {db, dbClose, client};
+const uri = `mongodb+srv://rakibul:${process.env.DB_PASS}@cluster0.gpypc.mongodb.net/movie-diary?retryWrites=true&w=majority`;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
+
+
+export { client};
 
