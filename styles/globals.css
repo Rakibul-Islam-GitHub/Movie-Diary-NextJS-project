@@ -72,6 +72,15 @@ a {
     border: 1px solid #8776977e;
 
 }
+.form-center{
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+    flex-direction: column;
+
+}
 
 footer{
   margin-top: 50px;
@@ -87,4 +96,18 @@ footer p{
 footer a{
   color: rgb(37, 176, 240);
   font-weight: bold;
+}
+
+@media screen and (max-width: 800px) {
+  
+  .review-form{
+  
+    width: 150%;
+    padding: 15px;
+    border: 1px solid #8776977e;
+
+}
+  
+ 
+  
 }

@@ -42,13 +42,13 @@ const AddReview = () => {
     }
     return (
         <>
-        <div className="addreview">
+        <div className="addreview col-md-12 ">
 
             
 
-        <div className="mt-2">
+        <div className=" mt-2 form-center">
         <h4 className="text-center mb-3">Add new review</h4>
-                    <Form onSubmit={addReviewHandler} className="review-form">
+                    <Form onSubmit={addReviewHandler} className="review-form ">
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label>Movie Name</Form.Label>
                             <Form.Control type="text" name="movieName" />
