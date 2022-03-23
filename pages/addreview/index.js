@@ -13,7 +13,7 @@ const AddReview = () => {
         if (loggedInUser.email == undefined) {
             router.push('/login')
         }
-    },[router, loggedInUser.email])
+    },[])
     const addReviewHandler= async (e)=> {
         e.preventDefault();
         const title = e.target.movieName.value;
@@ -49,22 +49,22 @@ const AddReview = () => {
                     <Form onSubmit={addReviewHandler} className="review-form ">
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label>Movie Name</Form.Label>
-                            <Form.Control type="text" name="movieName" />
+                            <Form.Control type="text" required name="movieName" />
                         </Form.Group>
 
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label>Release Year</Form.Label>
-                            <Form.Control type="text" name="releaseYear" />
+                            <Form.Control required type="text" name="releaseYear" />
                         </Form.Group>
 
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label>Image Url</Form.Label>
-                            <Form.Control type="text" name="imageUrl" />
+                            <Form.Control required type="text" name="imageUrl" />
                         </Form.Group>
                         
                         <Form.Group controlId="exampleForm.ControlTextarea1">
                             <Form.Label>Review</Form.Label>
-                            <Form.Control as="textarea" name="review" rows={5} />
+                            <Form.Control as="textarea" required name="review" rows={5} />
                         </Form.Group>
                     <Button className="mt-2" type="submit">submit</Button>
                     </Form>
