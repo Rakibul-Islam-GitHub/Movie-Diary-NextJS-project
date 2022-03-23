@@ -12,7 +12,7 @@ const NavbarComponent = () => {
        
     <Navbar  variant="dark" style={{padding:'20px', backgroundColor:'#0f494e'}}>
     
-     <div className='container'>
+     <div className='container nav-link-wrap'>
 
      <Link href="/" passHref>
 

@@ -102,10 +102,15 @@ footer a{
   
   .review-form{
   
-    width: 150%;
+    width: 115%;
     padding: 15px;
     border: 1px solid #8776977e;
 
+}
+ 
+.nav-link-wrap{
+  flex-wrap: wrap !important;
+  
 }
   
 }
