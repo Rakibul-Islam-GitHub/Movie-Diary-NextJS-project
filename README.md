@@ -34,6 +34,7 @@ This is a movie review web application where a user can write review of the movi
 - NextJS
 - React
 - React Hooks
+- context-api
 - Bootstrap
 - Axios
 - mongodb
@@ -41,20 +42,24 @@ This is a movie review web application where a user can write review of the movi
 
 
 ### Screenshot
-![Desktop View](/images/screenshot.png)
+Home Page
+![Desktop View](/public/images/screenshot.png)
 
-![Desktop View](/images/Screenshot_2.png)
+Add Review
+![Desktop View](/public/images/Screenshot_2.png)
 
-![Desktop View](/images/Screenshot_3.png)
+Single Review
+![Desktop View](/public/images/Screenshot_3.png)
 
-![Desktop View](/images/Screenshot_4.png)
+Login / Registration
+![Desktop View](/public/images/Screenshot_4.png)
 
 
 
 
 ### Links
 
-- Live Link : [Live Link]()
+- Live Link : [Live Link](https://movie-diary-nextjs.vercel.app/)
 
 ### What I learned
 The main objective of this project was to get hands-on experience by working with `NextJS`. The Nextjs is React Based framework with server side rendering capability. It is very fast and SEO friendly.. I have  gained a lot of knowledge by working with `getStaticProps` which can be used to fetch data and pass data as props of the page so that page can render accordings to passed props.
