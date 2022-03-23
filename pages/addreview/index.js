@@ -1,4 +1,4 @@
-import { Card, Form, Button } from "react-bootstrap";
+import {  Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { userContext } from "../_app";
@@ -43,8 +43,6 @@ const AddReview = () => {
     return (
         <>
         <div className="addreview col-md-12 ">
-
-            
 
         <div className=" mt-2 form-center">
         <h4 className="text-center mb-3">Add new review</h4>
