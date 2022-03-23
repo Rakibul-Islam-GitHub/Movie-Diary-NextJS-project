@@ -13,7 +13,7 @@ export default function Home(props) {
     < >
       <Head>
         <title>Movie Diary App</title>
-        <meta property="og:title" content="The app is built with NextJS"></meta>
+        <meta property="og:title" content="This app is built with NextJS"></meta>
         <meta name="description" content="This is a Movie Diary app, where you can write your favorite movie review" />
         <meta property="og:image" content="/images/screenshot.png"/>
         
