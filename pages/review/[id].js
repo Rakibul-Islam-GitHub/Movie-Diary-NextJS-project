@@ -50,7 +50,7 @@ export async function getStaticPaths(){
   client.close();
 
   return {
-    fallback: false,
+    fallback: 'blocking',
     paths: reviews.map((review) =>({
         params: {id: review._id.toString()},
       })),

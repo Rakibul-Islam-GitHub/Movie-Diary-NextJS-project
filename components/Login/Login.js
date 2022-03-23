@@ -1,10 +1,11 @@
-import  { useContext,  useState } from "react";
+import  { useContext,  useEffect,  useState } from "react";
 import { userContext } from "../../pages/_app";
-import Link from 'next/link';
+import { useRouter } from "next/router";
+import axios from "axios";
 
 
 const Login = () => {
-    
+  const router = useRouter();
   const [loggedInUser, setloggedInUser] = useContext(userContext);
 
   const [isNewUser, setUser] = useState(false);
@@ -13,7 +14,13 @@ const Login = () => {
     password: false,
   });
   
+useEffect(() => {
 
+  if (loggedInUser.email !== undefined) {
+    router.back();
+  }
+
+}, [loggedInUser.email, router])
   
 
   function handleNewUser() {
@@ -24,7 +31,7 @@ const Login = () => {
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
-  function handleSignup(e) {
+  async function  handleSignup  (e)  {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -33,11 +40,26 @@ const Login = () => {
     if (isNewUser) {
       if (validateEmail(email)) {
         setIsError({ emailError: false, password: true });
-        document.getElementById("loginForm").reset();
+        
         console.log(displayName, email, password);
 
 
         // send user details to db for sign up
+        try {
+          const res = await axios.post('/api/userRegistration', {email, password, displayName});
+          if(res.status===200){
+            document.getElementById("loginForm").reset();
+
+            setloggedInUser({ email, displayName})
+            localStorage.setItem("email", email);
+            localStorage.setItem("name", res.data.displayName);
+              router.push('/')
+          }
+          
+      } catch (error) {
+          console.log(error);
+          
+      }
 
         
       } else {
@@ -47,6 +69,24 @@ const Login = () => {
      
 
       // sign in here
+   
+
+      try {
+        const res = await axios.post('/api/login', {email, password});
+        if(res.status===200){
+          document.getElementById("loginForm").reset();
+          
+          setloggedInUser({ email, displayName: res.data.displayName})
+          localStorage.setItem("email", email);
+          localStorage.setItem("name", res.data.displayName);
+            router.push('/')
+        }
+        
+    } catch (error) {
+        console.log(error);
+        alert('Invalid username or password')
+        
+    }
     }
   }
   

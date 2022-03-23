@@ -1,20 +1,30 @@
 import { Card, Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { userContext } from "../_app";
+import { useContext, useEffect } from "react";
 
 
 const AddReview = () => {
     const router = useRouter();
+    const [loggedInUser] = useContext(userContext);
+    useEffect(()=>{
+
+        if (loggedInUser.email == undefined) {
+            router.push('/login')
+        }
+    },[router, loggedInUser.email])
     const addReviewHandler= async (e)=> {
         e.preventDefault();
         const title = e.target.movieName.value;
         const release= e.target.releaseYear.value;
         const img = e.target.imageUrl.value;
         const review= e.target.review.value;
+        const author= loggedInUser.displayName
 
       
         try {
-            const res = await axios.post('/api/add-review', {title, release, img, review});
+            const res = await axios.post('/api/add-review', {title, release, img, review, author});
             if(res.status===200){
                 e.target.review.value= '';
                 e.target.imageUrl.value='';
@@ -34,7 +44,10 @@ const AddReview = () => {
         <>
         <div className="addreview">
 
-        <div className="mt-5">
+            
+
+        <div className="mt-2">
+        <h4 className="text-center mb-3">Add new review</h4>
                     <Form onSubmit={addReviewHandler} className="review-form">
                         <Form.Group controlId="exampleForm.ControlInput1">
                             <Form.Label>Movie Name</Form.Label>

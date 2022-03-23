@@ -1,7 +1,7 @@
 import { Button, Card } from "react-bootstrap";
 import Link from 'next/link'
 
-const ReviewList = ({title, release, review, id, img}) => {
+const ReviewList = ({title, release, review, id, img, author}) => {
 
     return (
         <div>
@@ -16,6 +16,9 @@ const ReviewList = ({title, release, review, id, img}) => {
       <Card.Text>
         {review.slice(0,120) + '...'}
       </Card.Text>
+      <div>
+        <p>Review Author: {author}</p>
+      </div>
       <Link href={'/review/'+id}>
       <a   className='btn card-btn'   >Details</a>
       </Link>

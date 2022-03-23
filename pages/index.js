@@ -13,14 +13,16 @@ export default function Home(props) {
     < >
       <Head>
         <title>Movie Diary App</title>
-        <meta name="description" content="A Movie Diary app, where you can write your favorite movie review" />
+        <meta property="og:title" content="The app is built with NextJS"></meta>
+        <meta name="description" content="This is a Movie Diary app, where you can write your favorite movie review" />
+        <meta property="og:image" content="/images/screenshot.png"/>
         
       </Head>
       
      <div className="container ">
        {reviews.map( (review)=> {
           return(
-            <ReviewList key={review._id.toString()} title= {review.title} id= {review._id.toString()} release={review.release} img={review.img} review={review.review}  />
+            <ReviewList key={review._id.toString()} title= {review.title} id= {review._id.toString()} release={review.release} img={review.img} review={review.review} author={review.author}  />
           )
        })}
        
@@ -54,7 +56,7 @@ export async function getStaticProps(){
       props: {
         reviews: JSON.stringify(allreview)
       },
-      revalidate:10
+      revalidate:1
     }
     
   
